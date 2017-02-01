@@ -1,0 +1,19 @@
+language: java
+jdk:
+- oraclejdk8
+
+##########################
+### BUILD WITH MAVEN
+##########################
+script:
+# Once tests are properly set up remove skip tests
+- mvn clean install -Dmaven.test.skip=true
+
+##########################
+### SEND NOTIFICATIONS
+##########################
+
+#We should use secure notifications. Send to channel datahub-dev-connector
+notifications:
+  slack:
+    secure: WAnuSm4pMtMOC92ZEsknuf/q5hW7ZCA0vRbQ51nlz7NJc0VVaEYxxYBfvaT885fEilf9zveOUpN8VciZmSVU7Q8KFOeiBQhWMaiFUT82ny7rckoUOI879S+72Z3MzKTBaiU/xMd3QgM+MVHU72vDXNi5FtUrY0cj/NekyW6Pcp6nRsFFL+IJzX/EYsV/gPqcj2XNzYioGwcFeKofAFWTGFfvc03clqFAnScio0hxi8LnGQIVtrjniXlcpR5cRx//KWNUjnW5DggEE/zwILEwqXU6EVoCtlbmIhK07oWkdF1v13dx4n8wyTkU3jkVeTqUeevvIMTDALTSX2StUM7Kbw2o7kdQZlNKB6DN8FLwS4UBRI9MrSLwM0nCI49w869hv4OXXV/k/7gYuaGLOEHzUWaAwHhul5Na7yuCuLds7+R9Ih3Q1dBGi8usiE1iOH2O8ODB0k7+sOue9ck+PLqmH8YXhJBTOk9zU6umNQ4bHhKq83Wp7JfqyIDvmSqe+L8T1BC3PXSNQsPycUUniXqVFYIQMqBv7vN5P0py7jgXPYh8Qq+6Po7pvLFBD9YO8lZSXxiem+U3ALu0BJK3VTwcX7jpHMoNLadVkL8zdzGxJx6+aTPQxhL5Uj4gGUbcEdSN0/jB3eUIy826Pdv5b4A5smxswevr6LVrj/2a08GCp8o=
