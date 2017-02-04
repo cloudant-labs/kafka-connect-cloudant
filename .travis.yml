@@ -3,11 +3,19 @@ jdk:
 - oraclejdk8
 
 ##########################
+### SET PARAMETERS
+##########################
+before_script:
+  - sed -ie 's/<account>/'"$CLOUDANT_ACCOUNT"'/g' src/test/resources/test.properties
+  - sed -ie 's/<database>/'"$CLOUDANT_DB"'/g' src/test/resources/test.properties
+  - sed -ie 's/<username>/'"$CLOUDANT_USERNAME"'/g' src/test/resources/test.properties
+  - sed -ie 's/<password>/'"$CLOUDANT_PASSWORD"'/g' src/test/resources/test.properties
+##########################
 ### BUILD WITH MAVEN
 ##########################
 script:
 # Once tests are properly set up remove skip tests
-- mvn clean install -Dmaven.test.skip=true
+- mvn clean install
 
 ##########################
 ### SEND NOTIFICATIONS
