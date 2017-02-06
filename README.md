@@ -122,3 +122,4 @@ Junit tests are available in `src/test/java`. To execute, please modify values i
 
 The settings in `test.properties` have to include Cloudant database credentials and Kafka topic details as above.
 
+
