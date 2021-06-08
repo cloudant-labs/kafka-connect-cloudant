@@ -26,6 +26,8 @@ key.converter|org.apache.kafka.connect.json.JsonConverter
 value.converter|org.apache.kafka.connect.json.JsonConverter
 key.converter.schemas.enable|true
 value.converter.schemas.enable|true
+offset.storage.file.filename|storage
+bootstrap.servers|localhost:9092
 
 Assume these settings in a file `connect-standalone.properties` or `connect-distributed.properties`.
 
@@ -87,26 +89,26 @@ For example:
 - standalone execution with Cloudant as source:
 
   ```
-  $kafka_home/bin/connect-standalone connect-standalone.properties connect-cloudant-source.properties`
+  $kafka_home/bin/connect-standalone.sh connect-standalone.properties connect-cloudant-source.properties
   ```
 
 - standalone execution with Cloudant as sink:
 
   ```
-  $kafka_home/bin/connect-standalone connect-standalone.properties connect-cloudant-sink.properties
+  $kafka_home/bin/connect-standalone.sh connect-standalone.properties connect-cloudant-sink.properties
   ```
 
 - standalone execution with multiple configurations, one using Cloudant as source and one using Cloudant as sink:
 
   ```
-  $kafka_home/bin/connect-standalone connect-standalone.properties connect-cloudant-source.properties connect-cloudant-sink.properties
+  $kafka_home/bin/connect-standalone.sh connect-standalone.properties connect-cloudant-source.properties connect-cloudant-sink.properties
   ```
 
 Any number of connector configurations can be passed to the executing script.
 
 INFO level logging is configured by default to the console. To change log levels or settings, work with
 
-`$kafka_home/etc/kafka/connect-log4j.properties`
+`$kafka_home/config/connect-log4j.properties`
 
 and add log settings like
 
